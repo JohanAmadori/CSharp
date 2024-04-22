@@ -1,0 +1,92 @@
+﻿<Page x:Class="wpf_application.Pages.CrudA"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:wpf_application.Pages"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CrudA">
+
+	<Grid>
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="50"/>
+				<RowDefinition Height="*"/>
+				<RowDefinition Height="30"/>
+			</Grid.RowDefinitions>
+			<Label Grid.Row="0" Name="lblRappeurs" Content="Rappeurs (0)" FontSize="24" />
+
+			<Grid Grid.Row="1" >
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="1*"/>
+					<ColumnDefinition Width="2*"/>
+				</Grid.ColumnDefinitions>
+				<!--Detail-->
+				<Grid Grid.Column="0" Margin="5 0 15 0">
+					<Grid.RowDefinitions >
+						<RowDefinition Height="30"/>
+						<RowDefinition Height="30"/>
+						<RowDefinition Height="30"/>
+						<RowDefinition Height="30"/>
+						<RowDefinition Height="30"/>
+						<RowDefinition Height="30"/>
+						<RowDefinition Height="80"/>
+						<RowDefinition Height="30"/>
+						<RowDefinition Height="30"/>
+						<RowDefinition Height="50"/>
+
+
+					</Grid.RowDefinitions>
+					<Label Grid.Row="0" Name="LIB_ID" Content="ID :" Width="150" HorizontalAlignment="Left"/>
+					<Label Grid.Row="0" Name="txtId" Margin="120 2 2 0" VerticalContentAlignment="Center" />
+					<!-- Marque -->
+					<Label Grid.Row="1" Name="LIB_nom" Content="Nom :" Width="150" HorizontalAlignment="Left"/>
+					<TextBox Name="SAI_nom"  Grid.Row="1" Margin="120 2 2 0" VerticalContentAlignment="Center"/>
+					<!-- Nom de la famille -->
+					<Label Grid.Row="2" Name="LIB_note_globale" Width="150" HorizontalAlignment="Left">
+					</Label>
+					<TextBox Name="SAI_note_globale"  Grid.Row="2" Margin="120 2 2 0" VerticalContentAlignment="Center"/>
+					<!-- Modèle -->
+					<Label Grid.Row="3" Name="LIB_vignette" Content="vignette :" Width="150" HorizontalAlignment="Left"/>
+					<TextBox Name="SAI_vignette"  Grid.Row="3" Margin="120 2 2 0" VerticalContentAlignment="Center"/>
+					<!-- Description -->
+					<Label Grid.Row="4" Name="LIB_picture" Content="picture :" Width="150" HorizontalAlignment="Left"/>
+					<TextBox Name="SAI_picture"  Grid.Row="4" Margin="120 2 2 0" VerticalContentAlignment="Center"/>
+					<!-- Couleur -->
+					<Label Grid.Row="5" Name="LIB_lien" Content="lien :" Width="150" HorizontalAlignment="Left"/>
+					<TextBox Name="SAI_lien"  Grid.Row="5" Margin="120 2 2 0" VerticalContentAlignment="Center"/>
+					<!-- Prix public -->
+					<Label Grid.Row="6" Name="LIB_musique" Content="musique :" Width="150" HorizontalAlignment="Left"/>
+					<TextBox Name="SAI_musique"  Grid.Row="6" Margin="120 2 2 0" VerticalContentAlignment="Center"/>
+
+
+					<StackPanel Grid.Row="9" Margin="0 20 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+						<Button  Name="btnAjouter" Content="Ajouter" Click="btnAjouter_Click" Width="100" ></Button>
+						<Button Name="btnModifier" Content="Modifier" Click="btnModifier_Click" Width="100" Margin="10 0 10 0" ></Button>
+						<Button  Name="btnSupprimer" Content="Supprimer" Click="btnSupprimer_Click" Width="100"></Button>
+
+					</StackPanel>
+
+
+				</Grid>
+
+				<DataGrid Grid.Column="1" SelectionMode="Single" AutoGenerateColumns="False" Name="dgRappeurs"  Margin="10 0 5 0" IsReadOnly="True" SelectionChanged="dgRappeurs_SelectionChanged">
+					<DataGrid.Columns>
+						<DataGridTextColumn Binding="{Binding nom}" Header="Marque" Width="100"/>
+						<DataGridTextColumn Binding="{Binding note_globale}" Header="Nom de la famille" />
+
+						<DataGridTextColumn Binding="{Binding vignette}" Header="Modèle" Width="100" />
+
+						<DataGridTextColumn Binding="{Binding picture}" Header="Description" Width="*"/>
+						<DataGridTextColumn Binding="{Binding lien}" Header="Couleur" Width="100" />
+						<DataGridTextColumn Binding="{Binding musique}" Header="Prix public" Width="100" />
+
+					</DataGrid.Columns>
+				</DataGrid>
+
+			</Grid>
+			<Label Grid.Row="2" Content="Footer" />
+		</Grid>
+	</Grid>
+</Page>
